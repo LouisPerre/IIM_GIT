@@ -1,39 +1,36 @@
 <?php session_start();
 
 /******************************** 
-	 DATABASE & FUNCTIONS 
-********************************/
+     DATABASE & FUNCTIONS 
+ ********************************/
 require('config/config.php');
 require('model/functions.fn.php');
 
 
 /********************************
-			PROCESS
-********************************/
+            PROCESS
+ ********************************/
 
-if(isset($_POST['emailLogin']) && isset($_POST['passwordLogin'])){
-	if(!empty($_POST['emailLogin']) && !empty($_POST['passwordLogin'])){
+if (isset($_POST['emailForm']) && isset($_POST['passwordForm'])) {
+	if (!empty($_POST['emailForm']) && !empty($_POST['passwordForm'])) {
 
 		// TODO
 
 		// Force user connection to access dashboard
-		$userConnection = userConnection($db, $_POST['emailLogin'], $_POST['passwordLogin']);
-        if ($userConnection === true) {
-            header('Location: dashboard.php');
-        } else {
-            $error = 'Invalid credentials';
-        }
-		
-
-
-	} else{
+		$userConnection = userConnection($db, $_POST['emailForm'], $_POST['passwordForm']);
+		if ($userConnection === true) {
+			header('Location: dashboard.php');
+		} else {
+			$error = 'Invalid credentials';
+		}
+	} else {
 		$error = 'Champs requis !';
 	}
 }
 
 /******************************** 
-			VIEW 
-********************************/
+            VIEW 
+ ********************************/
 include 'view/_header.php';
 include 'view/login.php';
 include 'view/_footer.php';
