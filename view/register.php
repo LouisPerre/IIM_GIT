@@ -10,20 +10,20 @@
 						<?php unset($_SESSION['message']); ?>
 					</div>
 				<?php } ?>
-				<form method="POST" action="validation.php">
+				<form method="POST" action="register.php">
 					<div class="form-input">
 						<span class="username">
-							<input type="text" name="usernameRegister" placeholder="Username">
+							<input type="text" name="usernameForm" placeholder="Username">
 						</span>
 					</div>
 					<div class="form-input">
 						<span class="email">
-							<input type="text" name="emailRegister" placeholder="Email">
+							<input type="text" name="emailForm" placeholder="Email">
 						</span>
 					</div>
 					<div class="form-input">
 						<span class="password">
-							<input type="password" name="passwordRegister" placeholder="Password">
+							<input type="password" name="passwordForm" placeholder="Password">
 						</span>
 					</div>
 
