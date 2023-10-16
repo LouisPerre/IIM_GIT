@@ -11,17 +11,22 @@ require('model/functions.fn.php');
 			PROCESS
 ********************************/
 
-if(isset($_POST['email']) && isset($_POST['password'])){
-	if(!empty($_POST['email']) && !empty($_POST['password'])){
+if(isset($_POST['emailLogin']) && isset($_POST['passwordLogin'])){
+	if(!empty($_POST['emailLogin']) && !empty($_POST['passwordLogin'])){
 
 		// TODO
 
 		// Force user connection to access dashboard
-		userConnection($db, 'git@initiation.com', 'password');
+		$userConnection = userConnection($db, $_POST['emailLogin'], $_POST['passwordLogin']);
+        if ($userConnection === true) {
+            header('Location: dashboard.php');
+        } else {
+            $error = 'Invalid credentials';
+        }
 		
-		header('Location: dashboard.php');
 
-	}else{
+
+	} else{
 		$error = 'Champs requis !';
 	}
 }
